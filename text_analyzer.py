@@ -31,7 +31,7 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-from time import sleep
+from time import sleep                  #Added for smooth exits.
 sepa = "#" * 70
 users_all = {"bob": "123", "ann": "pass123", "mike": "password13", "liz": "pass123"}
 user = input("Username: ").lower()      #lower() is not neccessary, name is usual case sensitive, but better be safe than sorry
@@ -67,10 +67,9 @@ elif int(choice) not in range(1,4):
     sleep(5)
     exit()
 else:
-    #from time import sleep                     #Uncomment for extra suspense!
-    #print("You have chosen")
-    #for i in range(3): print('.'), sleep(1)
-    #print("WISELY!")
+    print("You have chosen", end="")                   #Uncomment for extra suspense!
+    for i in range(6): print('.', end=""), sleep(1)
+    print("WISELY!")
     print("Let's get to it!")
 print(sepa)
 
@@ -114,7 +113,7 @@ for w in text_clean:
         num_sum += w
 print(f"The sum of all the numbers is {num_sum}.")
 
-print(sepa)
+print(sepa)   
 
 len_dict = {}
 for w in text_clean: len_dict[len(w)] = len_dict.get(len(w), 0) + 1
