@@ -73,6 +73,7 @@ else:
     print("Let's get to it!")
 print(sepa)
 
+#chosen_text = input("Insert your text: ")
 chosen_text = TEXTS[int(choice) - 1]
 words_only = chosen_text.split()
 
@@ -122,7 +123,7 @@ mid_col_space = max(len_dict.values()) + 2
 print(f"LEN|{'OCCURENCES'.center(mid_col_space)}|NR.")
 print(sepa)
 for n in len_dict:
-    print(f"{n:>3}|{('*' * len_dict[n]):<{mid_col_space}}|{len_dict[n]:<3}")
+    print(f"{n:>3}|{('█' * len_dict[n]):<{mid_col_space}}|{len_dict[n]:<3}")
 print(sepa)
 input("Well, this was fun! Until next time! Type anything to end: \n")
 
