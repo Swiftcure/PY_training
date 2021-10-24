@@ -31,7 +31,7 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-from time import sleep                  #Added for smooth exits.
+from time import sleep                  #Added for smooth execution and exits.
 sepa = "#" * 70
 users_all = {"bob": "123", "ann": "pass123", "mike": "password13", "liz": "pass123"}
 user = input("Username: ").lower()      #lower() is not neccessary, name is usual case sensitive, but better be safe than sorry
@@ -67,9 +67,10 @@ elif int(choice) not in range(1,4):
     sleep(5)
     exit()
 else:
-    print("You have chosen", end="")                   #Uncomment for extra suspense!
-    for i in range(6): print('.', end=""), sleep(1)
+    print("You have chosen", end="")                            #Little something for extra suspense!
+    for i in range(6): print('.', end='', flush=True), sleep(1)
     print("WISELY!")
+    sleep(2)
     print("Let's get to it!")
 print(sepa)
 
@@ -120,8 +121,8 @@ len_dict = {}
 for w in text_clean: len_dict[len(w)] = len_dict.get(len(w), 0) + 1
 
 mid_col_space = max(len_dict.values()) + 2
-print(f"LEN|{'OCCURENCES'.center(mid_col_space)}|NR.")
-print(sepa)
+print(f"LEN|{'OCCUR.'.center(mid_col_space)}|NR.")                  #I shortened OCCURENCES, because there might be just short words in the text,
+print(sepa)                                                         #and it doesn't look as good.
 for n in len_dict:
     print(f"{n:>3}|{('█' * len_dict[n]):<{mid_col_space}}|{len_dict[n]:<3}")
 print(sepa)
