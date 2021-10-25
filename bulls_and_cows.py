@@ -40,17 +40,18 @@ sepa = "░▒▓█▓▒" * 9 + "░"
 #print("WELCOME TO THE ULTIMATE GAME OF BULLS AND COWS!\nFour digit number is ready for you now!\nRemember, there are no duplicate digits in the number\nand the number can't start with zero.")
 #print(sepa)
 
-#repeat = True
+#repeat = True                                      # This is just another dumber version of the while loop below (for educational purposes).
 #while repeat:
+#    repeat = False
 #    number = random.choice(range(1000, 10000))
 #    for digit in str(number):
-#        if str(number).count(digit) > 1:
-#            repeat = True
-#    repeat = False
+#       if str(number).count(digit) > 1:
+#           repeat = True
+#           break
 
 while True:
     number = str(random.choice(range(1000, 10000)))
-    if len(set(number)) == 4:
+    if len(set(number)) == 4
         break
 
 print(number)
