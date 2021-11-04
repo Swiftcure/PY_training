@@ -6,11 +6,10 @@ import random
 from math import floor
 from time import sleep, time
 
-sepa = "░▒▓█▓▒" * 9 + "░"
+sepa = "░▒▓█▓▒" * 10 + "░" + "\n"
 
 print(sepa)
 logo = """
-
  ██████╗ ██╗   ██╗██╗     ██╗     ███████╗
  ██╔══██╗██║   ██║██║     ██║     ██╔════╝
  ██████╔╝██║   ██║██║     ██║     ███████╗
@@ -31,22 +30,35 @@ logo = """
  ██║     ██║   ██║██║███╗██║╚════██║
  ╚██████╗╚██████╔╝╚███╔███╔╝███████║
   ╚═════╝ ╚═════╝  ╚══╝╚══╝ ╚══════╝
-"""
+  """
 
 for line in logo.split("\n"):
     print(line)
-    sleep(0.4)
-print(sepa)
-print(" WELCOME TO THE ULTIMATE GAME OF BULLS AND COWS!\n Four digit number is ready for you now!\n Remember, there are no duplicate digits in the number\n and the number can't start with zero.\n Now get to it, your time's running!")
+    sleep(0.3)
 print(sepa)
 
-repeat = True         #This is a second (worse) option for the while loop below.
-while repeat:
-    number = random.choice(range(1000, 10000))
-    for digit in str(number):
-        if str(number).count(digit) > 1:
-            repeat = True
-    repeat = False
+intro =""" WELCOME TO THE ULTIMATE GAME OF BULLS AND COWS!
+ You will be given a four digit number to guess.
+ There are no duplicate digits in the number
+ and the number can't start with zero.
+ For every guess that the you make,
+ you get 2 values - the number of bulls
+ and the number of cows. 1 bull means
+ the guess contains and the target number have
+ 1 digit in common, and in the correct position.
+ 1 cow means the guess and the target have
+ 1 digit in common, but not in correct position.
+ Let the target be 1234. Guessing 4321 will give
+ 0 bulls and 4 cows. 3241 will give 1 bull and 3 cows.
+ 4 bulls means you have won the game!
+
+"""
+
+for char in intro:
+    print(char, flush=True, end="")
+    sleep(0.05)
+
+print(sepa)
 
 def num_valid_check(guess):
     while True:
@@ -66,6 +78,9 @@ number = num_generator()
 bull, cow = 0, 0
 total_bull, total_cow = 0, 0
 attempts = 0
+input(" Your number is ready for you now! Are you ready? (y/n) ")
+print(" No one cares, if you are ready or not...\n Here we go! Time's running, get to it!")
+sleep(3)
 start = time()
 
 while True:                                          #Main loop for the game
@@ -89,7 +104,9 @@ while True:                                          #Main loop for the game
     if bull == 4:
         end = time()
         total_time = end - start
-        print(f" HOLY MOLLY! YOU DID IT! \n It took 'only' {attempts} attempts and {floor(total_time/60)} min and {floor(total_time%60)} sec.\n You have collected {total_bull} bulls and {total_cow} cows in total. That's quite a herd.")
+        print(f" HOLY MOLLY! YOU DID IT! \n It took 'only' {attempts} {'attempt' if attempts == 1 else 'attempts'} and {floor(total_time/60)} min "
+              f"and {floor(total_time%60)} sec.\n You have collected {total_bull} bulls and {total_cow} cows in total."
+              f"\n That's quite a herd. Keep then coming!")
         if input(f" Wanna go again? (y/n) ") != "y":
             print(" Thank you for playing! You still have a lot to learn though...")
             sleep(5)
@@ -97,6 +114,8 @@ while True:                                          #Main loop for the game
         else:
             print(sepa)
             number = num_generator()
+            attempts = 0
+            start = time()
 
     bull, cow = 0, 0
 
