@@ -79,12 +79,12 @@ bull, cow = 0, 0
 total_bull, total_cow = 0, 0
 attempts = 0
 input(" Your number is ready for you now! Are you ready? (y/n) ")
-print(" No one cares, if you are ready or not...\n Here we go! Time's running, get to it!")
+print(" No one cares, if you are ready or not...\n Here we go! Time's running, get to it\n")
 sleep(3)
 start = time()
 
 while True:                                          #Main loop for the game
-    guess = input("\n Enter a number: ")
+    guess = input(" Enter a number: ")
 
     if num_valid_check(guess) == False:
         continue
@@ -104,15 +104,16 @@ while True:                                          #Main loop for the game
     if bull == 4:
         end = time()
         total_time = end - start
-        print(f" HOLY MOLLY! YOU DID IT! \n It took 'only' {attempts} {'attempt' if attempts == 1 else 'attempts'} and {floor(total_time/60)} min "
-              f"and {floor(total_time%60)} sec.\n You have collected {total_bull} bulls and {total_cow} cows in total."
+        print(f" HOLY MOLLY! YOU DID IT! \n It took 'only' {attempts} {'attempt' if attempts == 1 else 'attempts'} "
+              f"and {floor(total_time/60)} min and {floor(total_time%60)} sec.\n "
+              f"You have collected {total_bull} bulls and {total_cow} cows in total."
               f"\n That's quite a herd. Keep then coming!")
         if input(f" Wanna go again? (y/n) ") != "y":
             print(" Thank you for playing! You still have a lot to learn though...")
             sleep(5)
             exit()
         else:
-            print(sepa)
+            print("\n" + sepa)
             number = num_generator()
             attempts = 0
             start = time()
