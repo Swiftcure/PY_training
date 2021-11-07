@@ -79,7 +79,7 @@ bull, cow = 0, 0
 total_bull, total_cow = 0, 0
 attempts = 0
 input(" Your number is ready for you now! Are you ready? (y/n) ")
-print(" No one cares, if you are ready or not...\n Here we go! Time's running, get to it\n")
+print(" No one cares, if you are ready or not...\n Here we go! Time's running, get to it!\n")
 sleep(3)
 start = time()
 
