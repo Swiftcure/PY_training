@@ -95,7 +95,7 @@ while True:                                          #Main loop for the game
         elif n != number[guess.index(n)] and n in number:
             cow += 1
 
-    print(f" BULLS: {bull}\n COWS: {cow}")
+    print(f" BULLS: {bull}\n COWS: {cow}\n")
 
     attempts += 1
     total_bull += bull
@@ -106,8 +106,8 @@ while True:                                          #Main loop for the game
         total_time = end - start
         print(f" HOLY MOLLY! YOU DID IT! \n It took 'only' {attempts} {'attempt' if attempts == 1 else 'attempts'} "
               f"and {floor(total_time/60)} min and {floor(total_time%60)} sec.\n "
-              f"You have collected {total_bull} bulls and {total_cow} cows in total."
-              f"\n That's quite a herd. Keep then coming!")
+              f"You have collected {total_bull} bulls and {total_cow} cows so far."
+              f"\n That's quite a herd. Keep them coming!")
         if input(f" Wanna go again? (y/n) ") != "y":
             print(" Thank you for playing! You still have a lot to learn though...")
             sleep(5)
