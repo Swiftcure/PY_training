@@ -65,7 +65,7 @@ def num_valid_check(guess):
         if guess.isnumeric() and guess[0] != "0" and len(set(guess)) == 4:
             return 1
         else:
-            print(" Four... digit-unique... number... not starting with zero. It's not so difficult.")
+            print(" Four... unique... digits... not starting with zero. It's not so difficult.")
             return 0
 
 def num_generator():
